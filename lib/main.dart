@@ -29,12 +29,12 @@ class _ActivityState extends State<Activity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Electical Machine Maintenance System", style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
+      ),
       body: 
           Column(
             children: [
-              SafeArea(
-                child: Text(" Electrical Machine Maintenance System",style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
-              ),
               SizedBox(height: 20,),
               Text("Location", style: TextStyle(fontWeight: FontWeight.bold),),
               SizedBox(height: 20,),
@@ -48,16 +48,12 @@ class _ActivityState extends State<Activity> {
               Center(
                 child: ElevatedButton(
                   onPressed: (){}, 
-                  child: Text("Main Pump"),
+                  child: Icon(Icons.volunteer_activism),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange[600],
                     foregroundColor: Colors.white
                   )
-                  // ButtonStyle(
-                  //   backgroundColor: MaterialStatePropertyAll(Colors.orange[600]),
-                  //   foregroundColor: MaterialStatePropertyAll(Colors.white),
-                  // ),
-                )
+                ),
               )
             ],
           ),
