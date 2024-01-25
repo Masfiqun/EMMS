@@ -45,11 +45,20 @@ class _ActivityState extends State<Activity> {
                   ElevatedButton(onPressed: (){}, child: Text("Muktijoddha Hall")),
                 ],
               ),
-              Center(
+              SizedBox(
+                width: 110,
+                height: 100,  
                 child: ElevatedButton(
                   onPressed: (){}, 
-                  child: Icon(Icons.volunteer_activism),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.volunteer_activism),
+                      Text("Pump")
+                    ],
+                  ),
                   style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                     backgroundColor: Colors.orange[600],
                     foregroundColor: Colors.white
                   )
