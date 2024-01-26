@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:emms/Current/1st_Phase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -34,6 +35,8 @@ class Activity extends StatefulWidget {
 }
 
 class _ActivityState extends State<Activity> {
+  String selectedbutton = 'button';
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,12 +48,13 @@ class _ActivityState extends State<Activity> {
       // ),
       child: Scaffold(
         appBar: AppBar(
-          title: Center(child: Text("Electical Machine Maintenance System", style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),)),
+          title: Center(child: Text("Electical Machine Monitoring System", style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),)),
         ),
 
         body: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            //first Column materials
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -76,13 +80,23 @@ class _ActivityState extends State<Activity> {
               ],
             ),
 
-            Text("2"),
-            
+          //second Column materials
+            Expanded(
+              child: Container(
+                child: Text('Content $selectedbutton'),
+              )
+            ),
+
+          //third Column materials
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
-                  onPressed: (){}, 
+                  onPressed: (){
+                    setState(() {
+                      selectedbutton = '$first_phase_current()';
+                    });
+                  }, 
                   child: Text("1st Phase Current")
                 ),
 
@@ -102,10 +116,8 @@ class _ActivityState extends State<Activity> {
                 ),
               ],
             )
-          ],
-          
+          ], 
         )
-            
       ),
     );
   }
