@@ -35,32 +35,43 @@ class Activity extends StatefulWidget {
 }
 
 class _ActivityState extends State<Activity> {
-  String selectedbutton = 'button';
+
+  ButtonStyle buttonStyle = ElevatedButton.styleFrom(
+    padding: EdgeInsets.all(10),
+    backgroundColor: Colors.deepPurpleAccent[100],
+    foregroundColor: Colors.white,
+    
+  );
+
+ bool button = false;
+ String mytext = "hello";
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      // decoration: BoxDecoration(
-      //   image: DecorationImage(
-      //     image: AssetImage('assets/images/973967.jpg'),
-      //     fit: BoxFit.cover,
-      //   )
-      // ),
       child: Scaffold(
         appBar: AppBar(
-          title: Center(child: Text("Electical Machine Monitoring System", style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),)),
+          title: Text("Electical Machine Monitoring System", style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),),
+          centerTitle: true,
+          toolbarHeight: 30,
+          elevation: 2,
+          shadowColor: Colors.deepPurpleAccent,
+          surfaceTintColor: Colors.lightBlueAccent,
         ),
 
         body: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            //first Column materials
+
+           //first Column materials
+          //voltage parts
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   onPressed: (){}, 
-                  child: Text("1st Phase Voltage")
+                  child: Text("1st Phase Voltage"),
+                  style: buttonStyle,
                 ),
 
                 ElevatedButton(
@@ -83,18 +94,19 @@ class _ActivityState extends State<Activity> {
           //second Column materials
             Expanded(
               child: Container(
-                child: Text('Content $selectedbutton'),
+                child: Center(child: Text(button ? "done" :mytext)),
               )
             ),
 
           //third Column materials
+          //Current parts
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   onPressed: (){
                     setState(() {
-                      selectedbutton = '$first_phase_current()';
+                      button = !button;
                     });
                   }, 
                   child: Text("1st Phase Current")
@@ -125,7 +137,7 @@ class _ActivityState extends State<Activity> {
 
 
 
-              // Column(
+          // Column(
           //   children: [
           //     SizedBox(height: 20,),
           //     Text("Location", style: TextStyle(fontWeight: FontWeight.bold),),
