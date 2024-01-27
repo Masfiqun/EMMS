@@ -109,7 +109,8 @@ class _ActivityState extends State<Activity> {
                       button = !button;
                     });
                   }, 
-                  child: Text("1st Phase Current")
+                  child: Text("1st Phase Current"),
+                  style: buttonStyle,
                 ),
 
                 ElevatedButton(
