@@ -120,7 +120,8 @@ class _ActivityState extends State<Activity> {
 
                 ElevatedButton(
                   onPressed: (){}, 
-                  child: Text("3rd Phase Current")
+                  child: Text("3rd Phase Current"),
+                  style: buttonStyle,
                 ),
 
                 ElevatedButton(
